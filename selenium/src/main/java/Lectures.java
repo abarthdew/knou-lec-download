@@ -6,10 +6,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.Channels;
@@ -21,13 +18,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Lectures {
-    public static void main(String[] args) throws InterruptedException, AWTException {
+    public static void main(String[] args) throws InterruptedException, AWTException, IOException {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\dmsales\\workspace\\knou\\selenium\\src\\main\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Jonah\\jonahswork\\KNOU-lec-download\\selenium\\src\\main\\resources\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         String login = "https://ucampus.knou.ac.kr/ekp/user/login/retrieveULOLogin.do"; // 초기화면 접속
@@ -60,6 +61,8 @@ public class Lectures {
         }
 
         List<Map<String, String>> mp4 = new ArrayList();
+        String urlList = "";
+        String totalList = "";
         for (Map<String, String> m : list) {
             String lectures = "https://ucampus.knou.ac.kr/ekp/user/course/initUCRCourse.sdo?cntsId=" + m.get("code") + "&sbjtId=" + m.get("codeDetail") + "&tabNo=01";
             driver.get(lectures);
@@ -81,6 +84,7 @@ public class Lectures {
                 }
 
                 String htmlLecture = driver.getPageSource(); // 영상 스크립트 추출
+                new FileOutputStream("C:\\tmp\\"+ m.get("title") + "_" + cnt + ".txt").write(htmlLecture.getBytes()); // html 저장
 
                 driver.close(); // 새창 종료
                 driver.switchTo().window(winHandleBefore); // 원래 창으로 전환
@@ -96,29 +100,34 @@ public class Lectures {
                     map.put("html", htmlLecture);
                     mp4.add(map);
                     System.out.println("{ 'title' : " + map.get("title") + ", 'url' : " + map.get("url") + " }, ");
+                    urlList += "{ 'title' : " + map.get("title") + ", 'url' : " + map.get("url") + " }, ";
+                    totalList += "{ 'title' : " + map.get("title") + ", 'url' : " + map.get("url") + ", 'html': " + map.get("html") + " }, ";
                 }
                 cnt++;
             }
         }
 
-        List<Map<String, String>> result = new ArrayList<>();
-        mp4.stream()
-                .distinct() // 영상 주소 중복 제거
-                .forEach(result::add);
+        new FileOutputStream("C:\\tmp\\urlList.txt").write(urlList.getBytes());
+        new FileOutputStream("C:\\tmp\\totalList.txt").write(totalList.getBytes());
+
+        List<Map<String, String>> result = distinctArray(mp4, "name"); // 영상주소 중복 제거
+//        mp4.stream()
+//                .distinct() // 영상 주소 중복 제거
+//                .forEach(result::add);
 //        System.out.println(result); // 최종 url
 
         for (Map<String, String> rs : result) {
             String FILE_PATH = rs.get("url");  // 주소 입력
             System.out.println(rs.get("title") + " 다운로드 진행중...");
             try {
-                // text 저장
-                OutputStream output = new FileOutputStream("C:\\Users\\Jonah\\jonahswork\\KNOU-lec-download\\" + rs.get("title") + ".html");
-                String html = rs.get("html");
-                byte[] by = html.getBytes();
-                output.write(by);
+                // html 저장
+//                OutputStream output = new FileOutputStream("C:\\tmp\\" + rs.get("title") + ".html");
+//                String html = rs.get("html");
+//                byte[] by = html.getBytes();
+//                output.write(by);
 
                 // file 저장
-                String fileName = rs.get("title") + ".mp4";
+                File fileName = new File("C:\\tmp\\" + rs.get("title") + ".mp4");
                 URL website = new URL(FILE_PATH);
                 ReadableByteChannel rbc = Channels.newChannel(website.openStream());
                 FileOutputStream fos = new FileOutputStream(fileName);
@@ -134,5 +143,20 @@ public class Lectures {
         }
 
         driver.close(); // 작업 종료
+    }
+
+
+    //중복제거 메소드, key는 제거할 맵 대상
+    private static List<Map<String, String>> distinctArray(List<Map<String, String>> target, String key){
+        if(target != null){
+            target = target.stream().filter(distinctByKey(o-> o.get(key))).collect(Collectors.toList());
+        }
+        return target;
+    }
+
+    //중복 제거를 위한 함수
+    private static <T> Predicate<T> distinctByKey(Function<? super T, String> keyExtractor) {
+        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
     }
 }
