@@ -84,7 +84,7 @@ public class Lectures {
                 }
 
                 String htmlLecture = driver.getPageSource(); // 영상 스크립트 추출
-                new FileOutputStream("C:\\tmp\\"+ m.get("title") + "_" + cnt + ".txt").write(htmlLecture.getBytes()); // html 저장
+                new FileOutputStream("C:\\tmp\\"+ m.get("title") + "_" + cnt + ".html").write(htmlLecture.getBytes()); // html 저장(중복 시 덮어씀)
 
                 driver.close(); // 새창 종료
                 driver.switchTo().window(winHandleBefore); // 원래 창으로 전환
@@ -100,8 +100,8 @@ public class Lectures {
                     map.put("html", htmlLecture);
                     mp4.add(map);
                     System.out.println("{ 'title' : " + map.get("title") + ", 'url' : " + map.get("url") + " }, ");
-                    urlList += "{ 'title' : " + map.get("title") + ", 'url' : " + map.get("url") + " }, ";
-                    totalList += "{ 'title' : " + map.get("title") + ", 'url' : " + map.get("url") + ", 'html': " + map.get("html") + " }, ";
+                    urlList += "{ 'title' : '" + map.get("title") + "', 'url' : '" + map.get("url") + "' }, ";
+                    totalList += "{ 'title' : '" + map.get("title") + "', 'url' : '" + map.get("url") + "', 'html': '" + map.get("html") + "' }, ";
                 }
                 cnt++;
             }
@@ -110,10 +110,11 @@ public class Lectures {
         new FileOutputStream("C:\\tmp\\urlList.txt").write(urlList.getBytes());
         new FileOutputStream("C:\\tmp\\totalList.txt").write(totalList.getBytes());
 
-        List<Map<String, String>> result = distinctArray(mp4, "name"); // 영상주소 중복 제거
-//        mp4.stream()
-//                .distinct() // 영상 주소 중복 제거
-//                .forEach(result::add);
+//        List<Map<String, String>> result = distinctArray(mp4, "name"); // 영상주소 중복 제거
+        List<Map<String, String>> result = new ArrayList<>(); // 영상주소 중복 제거
+        mp4.stream()
+                .distinct() // 영상 주소 중복 제거
+                .forEach(result::add);
 //        System.out.println(result); // 최종 url
 
         for (Map<String, String> rs : result) {
@@ -147,16 +148,16 @@ public class Lectures {
 
 
     //중복제거 메소드, key는 제거할 맵 대상
-    private static List<Map<String, String>> distinctArray(List<Map<String, String>> target, String key){
-        if(target != null){
-            target = target.stream().filter(distinctByKey(o-> o.get(key))).collect(Collectors.toList());
-        }
-        return target;
-    }
-
-    //중복 제거를 위한 함수
-    private static <T> Predicate<T> distinctByKey(Function<? super T, String> keyExtractor) {
-        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
-        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
-    }
+//    private static List<Map<String, String>> distinctArray(List<Map<String, String>> target, String key){
+//        if(target != null){
+//            target = target.stream().filter(distinctByKey(o-> o.get(key))).collect(Collectors.toList());
+//        }
+//        return target;
+//    }
+//
+//    //중복 제거를 위한 함수
+//    private static <T> Predicate<T> distinctByKey(Function<? super T, String> keyExtractor) {
+//        Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+//        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+//    }
 }
