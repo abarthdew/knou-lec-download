@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55006a5c-5fb6-4459-8f9b-caa7d961df6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/selenium/src/main/java/Lectures.java" beforeDir="false" afterPath="$PROJECT_DIR$/selenium/src/main/java/Lectures.java" afterDir="false" />
-    </list>
+    <list default="true" id="55006a5c-5fb6-4459-8f9b-caa7d961df6e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +28,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -80,7 +78,7 @@
       <workItem from="1606802447221" duration="9926000" />
       <workItem from="1606812819004" duration="209000" />
       <workItem from="1606872305201" duration="41211000" />
-      <workItem from="1607048443173" duration="1465000" />
+      <workItem from="1607048443173" duration="1716000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1606812841029</created>
@@ -110,7 +108,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607048468775</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="다운로드 경로 생성 코드 추가">
+      <created>1607057349247</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607057349247</updated>
+    </task>
+    <task id="LOCAL-00006" summary="다운로드 경로 생성 코드 추가">
+      <created>1607057413790</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607057413790</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +143,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="다운로드 경로 생성 코드 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="다운로드 경로 생성 코드 추가" />
   </component>
 </project>

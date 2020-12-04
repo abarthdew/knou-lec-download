@@ -61,7 +61,7 @@ public class Lectures {
         }
 
         List<Map<String, String>> mp4 = new ArrayList();
-        File downloadPath = new File("C:\\" + System.currentTimeMillis());
+        File downloadPath = new File("C:\\KNOU" + System.currentTimeMillis());
         if(!downloadPath.exists()) {// 폴더 생성
             downloadPath.mkdir();
         }
