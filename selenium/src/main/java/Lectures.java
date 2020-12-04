@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 public class Lectures {
     public static void main(String[] args) throws InterruptedException, AWTException, IOException {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Jonah\\jonahswork\\KNOU-lec-download\\selenium\\src\\main\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "selenium\\src\\main\\resources\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         String login = "https://ucampus.knou.ac.kr/ekp/user/login/retrieveULOLogin.do"; // 초기화면 접속
@@ -61,8 +61,13 @@ public class Lectures {
         }
 
         List<Map<String, String>> mp4 = new ArrayList();
+        File downloadPath = new File("C:\\" + System.currentTimeMillis());
+        if(!downloadPath.exists()) {// 폴더 생성
+            downloadPath.mkdir();
+        }
         String urlList = "";
         String totalList = "";
+
         for (Map<String, String> m : list) {
             String lectures = "https://ucampus.knou.ac.kr/ekp/user/course/initUCRCourse.sdo?cntsId=" + m.get("code") + "&sbjtId=" + m.get("codeDetail") + "&tabNo=01";
             driver.get(lectures);
@@ -84,7 +89,7 @@ public class Lectures {
                 }
 
                 String htmlLecture = driver.getPageSource(); // 영상 스크립트 추출
-                new FileOutputStream("C:\\tmp\\"+ m.get("title") + "_" + cnt + ".html").write(htmlLecture.getBytes()); // html 저장(중복 시 덮어씀)
+                new FileOutputStream(downloadPath + "\\"+ m.get("title") + "_" + cnt + ".html").write(htmlLecture.getBytes()); // html 저장(중복 시 덮어씀)
 
                 driver.close(); // 새창 종료
                 driver.switchTo().window(winHandleBefore); // 원래 창으로 전환
@@ -107,8 +112,8 @@ public class Lectures {
             }
         }
 
-        new FileOutputStream("C:\\tmp\\urlList.txt").write(urlList.getBytes());
-        new FileOutputStream("C:\\tmp\\totalList.txt").write(totalList.getBytes());
+        new FileOutputStream(downloadPath + "\\urlList.txt").write(urlList.getBytes());
+        new FileOutputStream(downloadPath + "\\totalList.txt").write(totalList.getBytes());
 
 //        List<Map<String, String>> result = distinctArray(mp4, "name"); // 영상주소 중복 제거
         List<Map<String, String>> result = new ArrayList<>(); // 영상주소 중복 제거
@@ -128,7 +133,7 @@ public class Lectures {
 //                output.write(by);
 
                 // file 저장
-                File fileName = new File("C:\\tmp\\" + rs.get("title") + ".mp4");
+                File fileName = new File(downloadPath + "\\" + rs.get("title") + ".mp4");
                 URL website = new URL(FILE_PATH);
                 ReadableByteChannel rbc = Channels.newChannel(website.openStream());
                 FileOutputStream fos = new FileOutputStream(fileName);
