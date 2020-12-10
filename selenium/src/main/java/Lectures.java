@@ -57,7 +57,7 @@ public class Lectures {
                 }
             }
         }
-        driver.close(); // 작업 종료
+        driver.close(); // 웹 작업 종료, 크롬 닫음
 
         /**
          ********** 4-1) 강의를 저장할 디렉토리 생성
