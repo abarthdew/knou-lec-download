@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55006a5c-5fb6-4459-8f9b-caa7d961df6e" name="Default Changelist" comment="" />
+    <list default="true" id="55006a5c-5fb6-4459-8f9b-caa7d961df6e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium/src/main/java/Identification.java" beforeDir="false" afterPath="$PROJECT_DIR$/selenium/src/main/java/Identification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium/src/main/java/Lectures.java" beforeDir="false" afterPath="$PROJECT_DIR$/selenium/src/main/java/Lectures.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +29,12 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -78,7 +88,9 @@
       <workItem from="1606802447221" duration="9926000" />
       <workItem from="1606812819004" duration="209000" />
       <workItem from="1606872305201" duration="41211000" />
-      <workItem from="1607048443173" duration="1716000" />
+      <workItem from="1607048443173" duration="2576000" />
+      <workItem from="1607497283222" duration="1169000" />
+      <workItem from="1607585633390" duration="1876000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1606812841029</created>
@@ -122,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607057413790</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="디렉토리명 변경">
+      <created>1607057701141</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607057701141</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +163,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="다운로드 경로 생성 코드 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="다운로드 경로 생성 코드 추가" />
+    <MESSAGE value="디렉토리명 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="디렉토리명 변경" />
   </component>
 </project>
