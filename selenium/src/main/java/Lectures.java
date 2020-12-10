@@ -20,8 +20,7 @@ public class Lectures {
         /**
          ********** 1) 웹 드라이버 세팅
          * */
-        // 웹 드라이버 종류, 웹 드라이버 경로 세팅
-        System.setProperty("webdriver.chrome.driver", "selenium\\src\\main\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "selenium\\src\\main\\resources\\chromedriver.exe"); // 웹 드라이버 종류, 웹 드라이버 경로 세팅
         WebDriver driver = new ChromeDriver();
 
         /**
@@ -58,6 +57,7 @@ public class Lectures {
                 }
             }
         }
+        driver.close(); // 작업 종료
 
         /**
          ********** 4-1) 강의를 저장할 디렉토리 생성
@@ -146,8 +146,5 @@ public class Lectures {
                 System.out.println(result.get("title") + " 다운로드 실패");
             }
         }
-
-        driver.close(); // 작업 종료
     }
-
 }

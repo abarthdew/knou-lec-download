@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="55006a5c-5fb6-4459-8f9b-caa7d961df6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/selenium/src/main/java/Identification.java" beforeDir="false" afterPath="$PROJECT_DIR$/selenium/src/main/java/Identification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/selenium/src/main/java/Lectures.java" beforeDir="false" afterPath="$PROJECT_DIR$/selenium/src/main/java/Lectures.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,7 +89,9 @@
       <workItem from="1606872305201" duration="41211000" />
       <workItem from="1607048443173" duration="2576000" />
       <workItem from="1607497283222" duration="1169000" />
-      <workItem from="1607585633390" duration="1876000" />
+      <workItem from="1607585633390" duration="1912000" />
+      <workItem from="1607588765013" duration="6000" />
+      <workItem from="1607589881585" duration="204000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1606812841029</created>
@@ -141,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607057701141</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="주석 변경">
+      <created>1607587533586</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1607587533586</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +172,7 @@
     <MESSAGE value="commit" />
     <MESSAGE value="다운로드 경로 생성 코드 추가" />
     <MESSAGE value="디렉토리명 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="디렉토리명 변경" />
+    <MESSAGE value="주석 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="주석 변경" />
   </component>
 </project>
