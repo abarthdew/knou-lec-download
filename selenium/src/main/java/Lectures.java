@@ -2,6 +2,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.awt.*;
 import java.io.*;
 import java.net.URL;
@@ -22,6 +26,7 @@ public class Lectures {
          * */
         System.setProperty("webdriver.chrome.driver", "selenium\\src\\main\\resources\\chromedriver.exe"); // 웹 드라이버 종류, 웹 드라이버 경로 세팅
         WebDriver driver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(driver, 5);
 
         /**
          ********** 2) 초기화면 접속 및 로그인(개인정보 사전 세팅 필요)
@@ -38,11 +43,17 @@ public class Lectures {
          ********** 3) 강의에 대한 대주제 페이지로 접속할 강의 코드 추출
          * */
         List<Map<String, String>> list = new ArrayList<>();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"div_srchType03\"]"))); // 화면이 그려질 때까지 기다림
         for (int i=1; i<9; i++) { // 총 8개 학기로 이루어져 있으므로 8번 반복한다(고정)
             WebElement grade = driver.findElement(By.xpath("//*[@id=\"div_srchType03\"]/a[" + i + "]")); // 하단 n학년 n학기 차례로 클릭
             grade.click();
 
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("post-list-item"))); // 화면이 그려질 때까지 기다림
+
             int lectureCount = driver.findElements(By.className("post-list-item")).size(); // 학기당 강의의 개수
+
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("post-list-item"))); // 화면이 그려질 때까지 기다림
+
             for (int j=1; j<lectureCount+1; j++) {
                 WebElement lecture = driver.findElement(By.xpath("//*[@id=\"deptCntsList\"]/li[" + j + "]/div")); // 강의 정보(코드, 하위코드, 제목) 패턴화 해서 가져오기
                 Pattern pattern = Pattern.compile("<a href=\"javascript:void.+;\" onclick=\"fnCoursePage.+, '(.+?)', '(.+?)'.+<div class=\"post-tb\">.+<img src=.+alt=\"(.+?)\"");

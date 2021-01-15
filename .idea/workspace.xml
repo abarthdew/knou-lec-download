@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55006a5c-5fb6-4459-8f9b-caa7d961df6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="55006a5c-5fb6-4459-8f9b-caa7d961df6e" name="Default Changelist" comment="버그 수정">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/selenium/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/selenium/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium/src/main/java/Identification.java" beforeDir="false" afterPath="$PROJECT_DIR$/selenium/src/main/java/Identification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/selenium/src/main/java/Lectures.java" beforeDir="false" afterPath="$PROJECT_DIR$/selenium/src/main/java/Lectures.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +74,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Lectures" />
@@ -103,7 +114,7 @@
       <workItem from="1607589881585" duration="448000" />
       <workItem from="1609908352212" duration="729000" />
       <workItem from="1610342519470" duration="3688000" />
-      <workItem from="1610676470551" duration="1232000" />
+      <workItem from="1610676470551" duration="5388000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1606812841029</created>
@@ -168,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607590093734</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="버그 수정">
+      <created>1610677726834</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610677726834</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +209,7 @@
     <MESSAGE value="다운로드 경로 생성 코드 추가" />
     <MESSAGE value="디렉토리명 변경" />
     <MESSAGE value="주석 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="주석 변경" />
+    <MESSAGE value="버그 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="버그 수정" />
   </component>
 </project>
