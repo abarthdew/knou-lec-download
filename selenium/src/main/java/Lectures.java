@@ -57,7 +57,6 @@ public class Lectures {
                 }
             }
         }
-        driver.close(); // 웹 작업 종료, 크롬 닫음
 
         /**
          ********** 4-1) 강의를 저장할 디렉토리 생성
@@ -117,6 +116,8 @@ public class Lectures {
                 cnt++;
             }
         }
+
+        driver.close(); // 웹 작업 종료, 크롬 닫음
 
         /**
          ********** 6) 영상 주소 및 전반적 정보들을 json 형식으로 text 저장
